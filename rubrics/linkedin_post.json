@@ -1,0 +1,91 @@
+{
+  "$comment": "LinkedIn post rubric. Consumed by src/sensor.js. Adding a new dim = (a) add an entry here, (b) register an evaluator in src/sensor.js. See tests/test-sensor.js for expected behaviour.",
+  "type": "linkedin_post",
+  "dimensions": {
+    "length": {
+      "$comment": "Total chars + sentence count must both be in range.",
+      "min_chars": 150,
+      "max_chars": 700,
+      "min_sentences": 3,
+      "max_sentences": 10
+    },
+    "first_line_hook": {
+      "$comment": "First line must be short and not start with a clichéd opener.",
+      "max_chars": 80,
+      "banned_openers": [
+        "I'm thrilled to",
+        "I'm excited to",
+        "I'm honoured to",
+        "I'm honored to",
+        "I just",
+        "So,",
+        "Today I",
+        "Yesterday I",
+        "This week I"
+      ]
+    },
+    "formatting": {
+      "$comment": "Paragraph breaks (blank lines). Each paragraph must be <=3 sentences.",
+      "min_paragraphs": 2,
+      "max_paragraphs": 6,
+      "max_sentences_per_paragraph": 3
+    },
+    "emoji_count": {
+      "$comment": "Total emoji count (Unicode emoji ranges).",
+      "min": 1,
+      "max": 3
+    },
+    "hashtag_count": {
+      "$comment": "Hashtags like #word. Each must be single lowercase word.",
+      "min": 0,
+      "max": 5,
+      "require_lowercase": true,
+      "require_single_word": true
+    },
+    "tone_no_cliches": {
+      "$comment": "Banned phrases. Case-insensitive whole-phrase match.",
+      "banned_phrases": [
+        "blessed",
+        "grateful for this opportunity",
+        "thought leader",
+        "thoughtleaders",
+        "rockstar",
+        "rock star",
+        "ninja",
+        "guru",
+        "crushing it",
+        "killing it",
+        "10x engineer",
+        "10x developer",
+        "game-changer",
+        "game changer",
+        "synergy",
+        "circle back",
+        "move the needle",
+        "unlock value"
+      ]
+    },
+    "no_engagement_bait": {
+      "$comment": "Banned closings. Case-insensitive. Match anywhere in last paragraph or at end.",
+      "banned_closings": [
+        "Thoughts?",
+        "Agree?",
+        "Like if you",
+        "Repost if you",
+        "Share if you",
+        "Comment below",
+        "Drop a comment",
+        "Who else",
+        "Tag someone"
+      ]
+    },
+    "no_all_caps_words": {
+      "$comment": "No ALL-CAPS words >3 chars (acronyms of 3 or fewer allowed).",
+      "max_word_length": 3
+    },
+    "no_unsupported_claims": {
+      "$comment": "Numbers, employer names, tool names, specific metrics in the draft must appear in the user-provided facts. Implemented in src/facts.js (claim extraction + diff).",
+      "enabled": true
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$comment": "Pass-at-2 fixture. An input that contains a banned opener ('I'm thrilled to') which the drafter must drop, OR the LLM initially produces a draft that fails one dim and passes on retry.",
+  "input": "I'm thrilled to announce I joined Acme Corp as a Senior PM this month. I previously led the Stripe Radar team for 4 years.",
+  "expected_status": "passed",
+  "expected_iterations_max": 2,
+  "expected_facts": {
+    "names_should_include": ["Acme Corp", "Stripe"],
+    "tools_should_include": []
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "$comment": "Pass-at-1 fixture. A clean input that should produce a rubric-passing draft on the first iteration.",
+  "input": "Why most PM interviews test the wrong thing. They ask you to estimate golf balls in a bus. What they should test: how you handle a stakeholder who disagrees with your roadmap. Three questions I ask instead: what problem are we solving, who decides, what did we learn last quarter.",
+  "expected_status": "passed",
+  "expected_iterations_max": 1
+}

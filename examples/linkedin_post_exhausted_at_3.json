@@ -1,0 +1,9 @@
+{
+  "$comment": "Exhausted-at-cap fixture. An adversarial input whose keywords include banned phrases ('blessed', 'grateful for this opportunity'). The loop should exhaust at cap=3 because the tone_no_cliches dim keeps failing.",
+  "input": "I feel so blessed to announce that I'm grateful for this opportunity to share my journey as a thought leader. After crushing it for 4 years at my last role, I'm thrilled to join Acme Corp. Synergy will unlock value.",
+  "expected_status": "exhausted",
+  "expected_iterations_max": 3,
+  "expected_facts": {
+    "names_should_include": ["Acme Corp"]
+  }
+}

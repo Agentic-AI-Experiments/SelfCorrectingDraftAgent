@@ -243,9 +243,9 @@ const EVALUATORS = {
 
 // ─── main entry ─────────────────────────────────────────────────────────────
 
-export function evaluate(draft, rubric, facts = null) {
+export function evaluate({ draft, rubric, facts = null } = {}) {
   if (!rubric || !rubric.dimensions) {
-    throw new TypeError('sensor.evaluate: rubric must have a "dimensions" key');
+    throw new TypeError('sensor.evaluate: rubric must have a "dimensions" key (and you must pass an args object: {draft, rubric, facts})');
   }
 
   const per_dim = {};

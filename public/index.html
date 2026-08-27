@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Self-Correcting Draft Agent</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Self-Correcting Draft Agent</h1>
+    <p class="sub">Draft &rarr; critique &rarr; redraft, bounded by an iteration cap.</p>
+  </header>
+
+  <main>
+    <section class="step" id="step-1">
+      <h2><span class="num">1</span> Keywords</h2>
+      <textarea id="keywords" rows="4" placeholder="Topic, hook idea, facts to include. E.g. why I switched from engineering to PM, after 4 years leading the Stripe Radar team."></textarea>
+      <div class="row">
+        <button id="generate-btn" type="button">Generate</button>
+        <span id="generate-status" class="status"></span>
+      </div>
+    </section>
+
+    <section class="step" id="step-2">
+      <h2><span class="num">2</span> Your draft</h2>
+      <textarea id="draft" rows="10" placeholder="Edit this draft, then click Iterate to improve it. Or generate a first draft above."></textarea>
+      <div class="row">
+        <button id="iterate-btn" type="button">Iterate</button>
+        <label class="cap">
+          Iterations
+          <select id="cap">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <button id="copy-btn" type="button">Copy</button>
+        <span id="iterate-status" class="status"></span>
+      </div>
+    </section>
+
+    <section class="step" id="step-3">
+      <h2><span class="num">3</span> Trace</h2>
+      <div id="trace" class="trace">
+        <p class="muted">Click <strong>Iterate</strong> to see the per-iteration rubric trace.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

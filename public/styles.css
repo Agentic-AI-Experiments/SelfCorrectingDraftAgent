@@ -1,0 +1,173 @@
+/* public/styles.css — minimal styling for the UI */
+
+:root {
+  --bg: #fafaf9;
+  --fg: #1c1917;
+  --muted: #78716c;
+  --border: #e7e5e4;
+  --accent: #0f172a;
+  --accent-fg: #fafaf9;
+  --ok: #166534;
+  --warn: #b45309;
+  --error: #991b1b;
+  --pass: #166534;
+  --fail: #991b1b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  margin: 0;
+  padding: 2rem 1rem;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  margin: 0 0 0.25rem;
+}
+header .sub {
+  color: var(--muted);
+  margin: 0 0 2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.step {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.step h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.step h2 .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  resize: vertical;
+  background: #fcfcf9;
+}
+textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+button {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border: none;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.cap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.cap select {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: white;
+}
+
+.status {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.status.ok    { color: var(--ok); }
+.status.warn  { color: var(--warn); }
+.status.error { color: var(--error); }
+
+.trace {
+  font-size: 0.9rem;
+}
+.trace .muted { color: var(--muted); margin: 0; }
+.trace .summary { margin: 0 0 0.75rem; }
+
+details.iter {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+}
+details.iter.pass { border-left: 4px solid var(--pass); }
+details.iter.fail { border-left: 4px solid var(--fail); }
+details.iter > summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+table.scorecard {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+table.scorecard th,
+table.scorecard td {
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+table.scorecard th {
+  background: #f5f5f4;
+  font-weight: 500;
+  color: var(--muted);
+}
+table.scorecard td.cell-pass { color: var(--pass); font-weight: 500; }
+table.scorecard td.cell-fail { color: var(--fail); font-weight: 500; }

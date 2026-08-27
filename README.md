@@ -82,11 +82,11 @@ Configured in `rubrics/linkedin_post.json`. The sensor evaluates these against e
 
 Registered with the OpenClaw gateway as `open-self-correcting-draft-agent-ui`:
 
-- **Cron ID:** `<assigned at registration>`
+- **Cron ID:** `6094595b-0c34-4902-8698-13b9c70968ed`
 - **`sessionTarget`:** `isolated`
 - **`payload.kind`:** `agentTurn` running `scripts/start-ui.js`
 - **`enabled`:** `false` (manual trigger from chat, matching the laptop-asleep pattern in MEMORY.md)
-- **Manual trigger:** `cron run --id <id> --force`
+- **Manual trigger:** `cron run --id 6094595b-0c34-4902-8698-13b9c70968ed --force`
 
 When triggered, the cron:
 1. Checks if a server is already running on port 3000.

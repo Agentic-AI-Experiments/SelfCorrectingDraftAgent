@@ -1,0 +1,2 @@
+# Placeholder so the state/ directory is tracked.
+# state/runs/, state/server.pid, state/server.log are gitignored (see .gitignore).

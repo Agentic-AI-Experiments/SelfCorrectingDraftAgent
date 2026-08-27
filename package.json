@@ -1,0 +1,28 @@
+{
+  "name": "self-correcting-draft-agent",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Self-correcting LinkedIn post drafter. Draft-critique loop with rubric-based sensor, bounded iteration.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "open-ui": "node scripts/start-ui.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "express": "*"
+  },
+  "devDependencies": {
+    "vitest": "*"
+  },
+  "comments": {
+    "express": "Web server. Single dependency for production runtime.",
+    "vitest": "Test runner. Dev-only.",
+    "node_modules": "Installed locally in this repo. Unlike DailyJobAggregatorAgent (which resolves via NODE_PATH to the shared OpenClaw workspace node_modules), this project installs its own deps because express + vitest are not in the shared workspace node_modules. Local install is the standard Node practice; the workspace junction is an optimisation for projects that share deps with the OpenClaw host."
+  }
+}
